@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_163626) do
   end
 
   create_table "user_applications", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "application_id"
+    t.bigint "user_id"
+    t.bigint "application_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["application_id"], name: "index_user_applications_on_application_id"

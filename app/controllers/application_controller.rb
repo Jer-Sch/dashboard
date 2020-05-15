@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include ApplicationsHelper
     include SessionsHelper
 
     def index

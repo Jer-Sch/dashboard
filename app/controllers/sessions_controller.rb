@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
         end 
     end
 
+    def destroy
+        log_out
+    end
+
+
     private
 
       def authenticate

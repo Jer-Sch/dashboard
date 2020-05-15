@@ -10,7 +10,16 @@ class UserApplicationTest < ActiveSupport::TestCase
                                              default_status: true,
                                              link: "http://www.google.com")
 
-    assert user1.applications.last.name == "Google"
+    application2 = user1.applications.create(name: "Wisc",
+                                             description: "UW Homepage",
+                                             color: "Blue",
+                                             default_status: false,
+                                             link: "http://www.wisc.edu")
+
+    assert user1.applications.first.name == "Google"
+    assert user1.applications.last.name == "Wisc"
+    
+    user1.delete
   end
 
   user1.applications.delete

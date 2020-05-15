@@ -11,14 +11,14 @@
 
 2. Users
    a. Create login page and form - D
-   b. Add validations 
+   b. Add validations - D
    c. Seed user table - D
 
 3. Applications
-   a. Create home page
-   b. Seed applications table
-   c. Display default applications
-   d. Add validations
+   a. Create home page - D
+   b. Seed applications table - D
+   c. Display default applications - D
+   d. Add validations - D
 
 4. User-Applications
    a. Create form to add applications (one or more)
