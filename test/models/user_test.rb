@@ -2,6 +2,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   user1 = User.create(login: "user1", password: "password")
+  user2 = User.create(login: nil, password: "password")
+  user3 = User.create(login: "user3", password: nil)
 
   test "users have a login" do
     assert user1.login == "user1"
@@ -11,5 +13,15 @@ class UserTest < ActiveSupport::TestCase
     assert user1.password == "password"
   end
 
+  test "user is invalid without a login" do
+    assert user2.invalid?
+  end
+
+  test "user is invalid without a password" do
+    assert user3.invalid?
+  end
+
   user1.delete
+  user2.delete
+  user3.delete
 end
