@@ -7,7 +7,7 @@
    f. Create user-applications model - D
    g. Create user-applications table - D
    f. Write basic tests - D
-   g. Deploy to Heroku
+   g. Deploy to Heroku - D
 
 2. Users
    a. Create login page and form
