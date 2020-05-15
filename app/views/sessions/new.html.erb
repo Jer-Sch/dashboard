@@ -1,0 +1,7 @@
+<%= form_for :session, url: { action: "create" } do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :login, placeholder: "Username", required: true %>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password", required: true %>
+    <%= f.submit 'Log in' %>
+<% end %>

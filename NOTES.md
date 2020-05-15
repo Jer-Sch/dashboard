@@ -10,9 +10,9 @@
    g. Deploy to Heroku - D
 
 2. Users
-   a. Create login page and form
-   b. Add validations
-   c. Seed user table
+   a. Create login page and form - D
+   b. Add validations 
+   c. Seed user table - D
 
 3. Applications
    a. Create home page
