@@ -1,0 +1,13 @@
+<ul>
+  <% @applications.each do |app| %>
+    <li><%= link_to(app.link) do %> 
+        <%= app.name %> - <%= app.description %>
+    <% end %></li>
+  <% end %>
+</ul>
+
+<%= form_for @application do |f| %>
+  <%= collection_check_boxes(:application, :id, Application.where(default_status: false), :id, :name, {:multiple => true}) %>
+  <%= f.submit("Add app") %>
+<% end %>
+

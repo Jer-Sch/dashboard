@@ -4,6 +4,6 @@ class Application < ApplicationRecord
     validates :name, presence: true
     validates :description, presence: true
     validates :color, presence: true
-    validates :default_status, presence: true
+    validates :default_status, :inclusion => [true, false]
     validates :link, presence: true
 end

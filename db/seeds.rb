@@ -16,6 +16,6 @@ Application.create([{ name: "Google", description: "Search Engine", color: "Red"
                     { name: "WEI", description: "Wisconsin Energy Institute", color: "Green", default_status: false, link: "https://energy.wisc.edu/" },
                     { name: "Twitter", description: "Twitter", color: "Purple", default_status: false, link: "https://twitter.com/" }])
 
-applications = Application.where(default_status: true)
+default_applications = Application.where(default_status: true)
 
-users.each{|user| user.applications << applications }
+users.each{|user| user.applications << default_applications }

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(login: params[:session][:login])
         if @user && authenticate
             log_in(@user)
-            redirect_to "/dashboard"
+            redirect_to "/applications"
         else
             flash[:danger] = "Username or password is invalid."
             redirect_to "/login"
