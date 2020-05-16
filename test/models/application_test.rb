@@ -76,6 +76,4 @@ class ApplicationTest < ActiveSupport::TestCase
 
     assert application6.invalid?
   end
-
-  application1.delete
 end 

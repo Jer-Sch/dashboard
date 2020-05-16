@@ -18,9 +18,5 @@ class UserApplicationTest < ActiveSupport::TestCase
 
     assert user1.applications.first.name == "Google"
     assert user1.applications.last.name == "Wisc"
-    
-    user1.delete
   end
-
-  user1.applications.delete
 end

@@ -1,8 +1,8 @@
 class ApplicationsController < ApplicationController
     def index
-        @application = Application.new
         user = current_user
         @applications = user.applications
+        @application = Application.new
     end
 
     def create

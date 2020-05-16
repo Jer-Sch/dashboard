@@ -20,8 +20,4 @@ class UserTest < ActiveSupport::TestCase
   test "user is invalid without a password" do
     assert user3.invalid?
   end
-
-  user1.delete
-  user2.delete
-  user3.delete
 end
