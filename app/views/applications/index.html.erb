@@ -1,4 +1,4 @@
-<ul>
+<ul class="sortable">
   <% @applications.each do |app| %>
     <li><%= link_to(app.link) do %> 
         <%= app.name %> - <%= app.description %>
