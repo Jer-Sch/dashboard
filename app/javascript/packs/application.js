@@ -11,7 +11,7 @@ require("jquery")
 require("jquery-ui")
 
 $(function(){
-    $('.sortable').sortable();
+    $('.row').sortable();
 });
 
 
