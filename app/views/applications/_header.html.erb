@@ -1,0 +1,16 @@
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">All apps</h4>
+              <%= link_to("Sign Out", logout_path, method: :delete, class: "nav-link") %>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4" >
+              <%= render 'all_applications_form' %>
+            </div>
+        </div>
+     </div>
+  </div>
+  <%= render 'navbar' %>
+</header>
