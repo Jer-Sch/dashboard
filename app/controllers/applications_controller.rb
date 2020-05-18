@@ -1,7 +1,7 @@
 class ApplicationsController < ApplicationController
     def index
         user = current_user
-        @applications = user.applications
+        @applications = user.applications.order(:position)
         @application = Application.new
     end
 
@@ -11,6 +11,14 @@ class ApplicationsController < ApplicationController
             user.applications << Application.find_by(id: id) unless id == ""
         end
         redirect_to "/applications"
+    end
+
+    def sort
+        params[:application].each_with_index do |id, index|
+            Application.where(id: id).update_all(position: index + 1)
+        end
+
+        head :ok
     end
 
     def destroy

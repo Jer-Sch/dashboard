@@ -11,7 +11,11 @@ require("jquery")
 require("jquery-ui")
 
 $(function(){
-    $('.row').sortable();
+    $('.row').sortable({
+        update: function() {
+            $.post($(this).data("url"), $(this).sortable('serialize'))
+        }
+    });
 });
 
 
