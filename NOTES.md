@@ -21,6 +21,12 @@
    d. Add validations - D
 
 4. User-Applications
-   a. Create form to add applications (one or more)
-   b. Create delete function
-   c. Create drag-and-drop
+   a. Create form to add applications (one or more) - D
+   b. Create delete function - D
+   c. Create drag-and-drop - D
+
+5. Other
+   a. style login form - D
+   b. create log out button - D
+   c. refactor code
+   d. write readme

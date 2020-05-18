@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
     include SessionsHelper
 
     def index
-        redirect_to "/applications"
+        redirect_to "/login"
     end
 end
