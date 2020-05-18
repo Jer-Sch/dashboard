@@ -7,8 +7,22 @@ class ApplicationsController < ApplicationController
 
     def create
         user = current_user
-        app = Application.find_by(id: params[:application][:id])
-        user.applications << app
+        params[:application][:id].each do |id|
+            user.applications << Application.find_by(id: id) unless id == ""
+        end
         redirect_to "/applications"
     end
+
+    def destroy
+        user = current_user
+        app = Application.find_by(id: params[:id])
+        user.applications.delete(app)
+        redirect_to "/applications"
+    end
+
+    private
+
+        def application_params
+            params.require(:application).permit(:id, :name, :description, :color, :default_status, :link, application_ids: [])
+        end
 end

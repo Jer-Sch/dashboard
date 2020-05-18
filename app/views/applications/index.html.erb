@@ -8,6 +8,16 @@
         user-select: none;
       }
 
+      .card-text {
+        padding-top: 10px;
+        text-align: center;
+      }
+
+      .btn-group {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -19,32 +29,28 @@
   </head>
   <body>
     <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-        <h4 class="text-white">Add more apps!</h4>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">All apps</h4>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4" >
+              <%= form_for @application do |f| %>
+                <ul class="list-unstyled">
+                  <%= f.collection_check_boxes(:id, Application.all, :id, :name, {:multiple => true}) do |box| %>
+                    <li class="text-white"><%= box.check_box %>          <%= box.label %></li>
+                  <% end %>
+                  <%= f.submit("Add app") %>
+                </ul>
+              <% end %>
+            </div>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4" >
-          <%= form_for @application do |f| %>
-          <ul class="list-unstyled">
-          <%= collection_check_boxes(:application, :id, Application.where(default_status: false), :id, :name, {:multiple => true}) do |box| %>
-            <li class="text-white"><%= box.label %>    <%= box.check_box %></li>
-            <% end %>
-            <%= f.submit("Add app") %>
-            <% end %>
-          </ul>
-          
-  
-
-        </div>
-      </div>
-    </div>
+     </div>
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <%# <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> %>
         <strong>Dashboard</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,34 +59,29 @@
     </div>
   </div>
 </header>
-
 <main role="main">
-
   <div class="album py-5 bg-light">
     <div class="container">
-
       <div class="row">
         <% @applications.each do |app| %>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <p class="card-text"><%= app.name %> * <%=app.description %></p>
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="<%= app.color.downcase %>"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to("Launch", app.link) %></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Remove</button>
-                </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <p class="card-text"><%= app.name %> -- <%=app.description %></p>
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="<%= app.color.downcase %>"/><text x="50%" y="50%" dy=".3em">Thumbnail</text></svg>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <%= link_to "Launch", app.link, class: "btn btn-sm btn-outline-secondary" %>
+                        <%= link_to "Remove", application_path(app), class: "btn btn-sm btn-outline-secondary", method: :delete, data: {confirm: "Are you sure about this?"} %>
+                      </div>
+                   </div>
+                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+           </div>
         <% end %>
       </div>
     </div>
   </div>
-
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
