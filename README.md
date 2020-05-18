@@ -1,24 +1,27 @@
-# README
+# Dashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is live at [glbrc-dashboard.herokuapp.com](https://glbrc-dashboard.herokuapp.com). It runs on Heroku's free dynos, so there may be a fairly long load time.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+1. Clone this repo.
 
-* System dependencies
+2. `cd` into the appropriate directory.
 
-* Configuration
+3. Make sure you have the required Ruby version (2.7.1). If not, please install it. RVM or rbenv are recommended version managers to use.
 
-* Database creation
+4. Run `bundle install` to install required gems.
 
-* Database initialization
+5. Run `yarn install` to install JavaScript packages.
 
-* How to run the test suite
+6. This app uses a PostgreSQL database. Please make sure you have Postgres installed and running.
 
-* Services (job queues, cache servers, search engines, etc.)
+7. Run `rails db:setup` to set up the database.
 
-* Deployment instructions
+8. Run `rails db:migrate` if there are pending migrations.
 
-* ...
+9. Seed the database with `rails db:seed`.
+
+10. Run the test suite with `rails test`.
+
+11. Enjoy!
