@@ -1,7 +1,5 @@
 # Dashboard
 
-This app is live at [glbrc-dashboard.herokuapp.com](https://glbrc-dashboard.herokuapp.com). It runs on Heroku's free dynos, so there may be a fairly long load time.
-
 ## Installation
 
 1. Clone this repo.
@@ -24,4 +22,8 @@ This app is live at [glbrc-dashboard.herokuapp.com](https://glbrc-dashboard.hero
 
 10. Run the test suite with `rails test`.
 
-11. Enjoy!
+11. Serve it up with `rails s`.
+
+12. Navigate to `localhost:3000`.
+
+13. Enjoy!
